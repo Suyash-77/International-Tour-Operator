@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - International Tour Operator Info Portal</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      padding: 15px 30px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    header nav ul li a:hover,
+    header nav ul li a.active {
+      color: #ffd60a;
+    }
+
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #00c6ff);
+  color: #fff;
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  gap: 40px;
+}
+
+.contact-info, .contact-form {
+  flex: 1;
+  min-width: 350px;
+  max-width: 500px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.contact-info h1 {
+  color: #00c6ff;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.info-box p {
+  margin-bottom: 10px;
+}
+
+.contact-form h2 {
+  color: #00c6ff;
+  margin-bottom: 15px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact-form form input:focus,
+.contact-form form textarea:focus {
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 0 8px rgba(0,198,255,0.6);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: translateY(-2px);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+  </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+      <i class="fas fa-plane-departure"></i> Tour Portal
+    </div>
+    <nav>
+      <ul><li><a href="registration.html" class="nav-link">Register/Login</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="operator.html" class="nav-link">Operators</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <div class="contact-info">
+      <h1>Contact Us</h1>
+      <p>Have questions or need support? Reach out to our team — we’re here to help!</p>
+      
+      <div class="info-box">
+        <p><strong>📍 Address:</strong> 45 Globe Street, Paris, France</p>
+        <p><strong>📞 Phone:</strong> +33 123 456 789</p>
+        <p><strong>✉️ Email:</strong> info@touroperatorportal.com</p>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send us a message</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 International Tour Operator Info Portal | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

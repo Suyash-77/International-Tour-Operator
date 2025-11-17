@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Operators - Info Portal</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <style>
+    /* General Reset */
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      padding: 15px 30px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    header nav ul li a:hover,
+    header nav ul li a.active {
+      color: #ffd60a;
+    }
+
+    /* Search Section */
+    .search-section {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f1f1f1;
+    }
+    .search-section input {
+      width: 50%;
+      padding: 12px;
+      border-radius: 25px;
+      border: 2px solid #0077b6;
+      outline: none;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #e9ecef;
+    }
+    .filter-section select {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #0077b6;
+      font-size: 16px;
+    }
+
+    /* Operators Section */
+    .operators {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card h3 {
+      margin: 10px 0;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .card .price {
+      font-weight: bold;
+      color: #0077b6;
+      margin-top: 5px;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      background: #0077b6;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card button:hover {
+      background: #023e8a;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #023e8a;
+      color: #fff;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-plane-departure"></i> Tour Portal
+    </div>
+    <nav>
+      <ul>
+        <li><a href="registration.html" class="nav-link">Register/Login</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="operator.html" class="nav-link active">Operators</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <h2>🔍 Find Your Perfect Tour Operator</h2>
+    <input type="text" id="searchBox" placeholder="Search operators...">
+  </section>
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div>
+      <label for="regionFilter">Region:</label>
+      <select id="regionFilter">
+        <option value="">All</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Africa">Africa</option>
+        <option value="America">America</option>
+      </select>
+    </div>
+    <div>
+      <label for="priceFilter">Price Range:</label>
+      <select id="priceFilter">
+        <option value="">All</option>
+        <option value="0-1000">Under $1000</option>
+        <option value="1000-2000">$1000 - $2000</option>
+        <option value="2000-3000">$2000 - $3000</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Operators Section -->
+  <!-- Operators -->
+  <section id="operators" class="operators">
+    <h2>Featured Operators</h2>
+    <div class="grid" id="operatorGrid">
+      <!-- Operator Cards -->
+      <div class="card" data-region="Asia" data-price="1200">
+        <img src="operator images\download.jpg" alt="Maldives">
+        <div class="card-content">
+          <h3>Maldives Beach Retreat</h3>
+          <p>Luxury resort stay, snorkeling, and sunset cruises.</p>
+          <p class="price">Starting at $1200</p>
+          <button onclick="bookNow('Maldives Beach Retreat')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Europe" data-price="950">
+        <img src="operator images\download (1).jpg" alt="Paris">
+        <div class="card-content">
+          <h3>France Tour</h3>
+          <p>Eiffel Tower, Louvre Museum, and Seine River cruise.</p>
+          <p class="price">Starting at $1200</p>
+          <a href="viewhere2.html"><button onclick="bookNow('Paris City Tour')" >View</button></a>
+        </div>
+      </div>
+
+      <div class="card" data-region="Africa" data-price="1800">
+        <img src="operator images\download (2).jpg" alt="Kenya Safari">
+        <div class="card-content">
+          <h3>Kenya Safari Adventure</h3>
+          <p>Game drives, Maasai village visits, and luxury lodges.</p>
+          <p class="price">Starting at $1800</p>
+          <a href="viewhere3.html"><button onclick="bookNow('Kenya Safari Adventure')">View</button></a>
+        </div>
+      </div>
+
+      <div class="card" data-region="Asia" data-price="2200">
+        <img src="operator images\download (3).jpg" alt="Tokyo">
+        <div class="card-content">
+          <h3>Japan Highlights</h3>
+          <p>Tokyo, Kyoto temples, Mount Fuji, and bullet train rides.</p>
+          <p class="price">Starting at $2200</p>
+          <a href="viewhere4.html"><button onclick="bookNow('Japan Highlights')">View</button></a>
+        </div>
+      </div>
+
+      <div class="card" data-region="Europe" data-price="1100">
+        <img src="operator images\download (4).jpg" alt="Rome">
+        <div class="card-content">
+          <h3>Italy Heritage Tour</h3>
+          <p>Colosseum, Vatican City, and authentic Italian cuisine.</p>
+          <p class="price">Starting at $1100</p>
+          <button onclick="bookNow('Rome Heritage Tour')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Asia" data-price="1400">
+        <img src="operator images\download (6).jpg" alt="Dubai">
+        <div class="card-content">
+          <h3>Dubai Luxury Escape</h3>
+          <p>Burj Khalifa, desert safari, and luxury shopping.</p>
+          <p class="price">Starting at $1400</p>
+          <button onclick="bookNow('Dubai Luxury Escape')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="America" data-price="1350">
+        <img src="operator images\download (5).jpg" alt="New York">
+        <div class="card-content">
+          <h3>USA Explorer</h3>
+          <p>Statue of Liberty, Times Square, and Broadway shows.</p>
+          <p class="price">Starting at $1350</p>
+          <button onclick="bookNow('New York Explorer')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Australia" data-price="2000">
+        <img src="operator images\download (7).jpg" alt="Australia">
+        <div class="card-content">
+          <h3>Australia Coastal Journey</h3>
+          <p>Great Barrier Reef, Sydney Opera House, and beaches.</p>
+          <p class="price">Starting at $2000</p>
+          <button onclick="bookNow('Australia Coastal Journey')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Asia" data-price="950">
+        <img src="operator images\download (8).jpg" alt="Thailand">
+        <div class="card-content">
+          <h3>Thailand Tropical Escape</h3>
+          <p>Bangkok, Phuket beaches, and cultural temples.</p>
+          <p class="price">Starting at $950</p>
+          <button onclick="bookNow('Thailand Tropical Escape')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Europe" data-price="1750">
+        <img src="operator images\download (9).jpg" alt="Iceland">
+        <div class="card-content">
+          <h3>Iceland Northern Lights</h3>
+          <p>Glaciers, geysers, and northern lights experience.</p>
+          <p class="price">Starting at $1750</p>
+          <button onclick="bookNow('Iceland Northern Lights')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Africa" data-price="1250">
+        <img src="operator images\download (10).jpg" alt="Egypt">
+        <div class="card-content">
+          <h3>Egyptian Pyramids Tour</h3>
+          <p>Giza pyramids, Nile cruise, and ancient temples.</p>
+          <p class="price">Starting at $1250</p>
+          <button onclick="bookNow('Egyptian Pyramids Tour')">View</button>
+        </div>
+      </div>
+
+      <div class="card" data-region="Asia" data-price="1150">
+        <img src="operator images\download (11).jpg" alt="Bali">
+        <div class="card-content">
+          <h3>Bali Island Paradise</h3>
+          <p>Ubud rice terraces, beaches, and cultural dance shows.</p>
+          <p class="price">Starting at $1150</p>
+          <button onclick="bookNow('Bali Island Paradise')">View</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      <!-- Add more operator cards as needed -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Tour Operator Portal | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Search Functionality
+    document.getElementById('searchBox').addEventListener('keyup', function() {
+      let filter = this.value.toLowerCase();
+      let cards = document.querySelectorAll('#operatorGrid .card');
+      cards.forEach(card => {
+        let title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(filter) ? '' : 'none';
+      });
+    });
+
+    // Filter Functionality
+    document.getElementById('regionFilter').addEventListener('change', filterOperators);
+    document.getElementById('priceFilter').addEventListener('change', filterOperators);
+
+    function filterOperators() {
+      let region = document.getElementById('regionFilter').value;
+      let priceRange = document.getElementById('priceFilter').value;
+
+      let cards = document.querySelectorAll('#operatorGrid .card');
+      cards.forEach(card => {
+        let cardRegion = card.getAttribute('data-region');
+        let cardPrice = parseInt(card.getAttribute('data-price'));
+
+        let showCard = true;
+
+        // Filter by region
+        if (region && cardRegion !== region) {
+          showCard = false;
+        }
+
+        // Filter by price range
+        if (priceRange) {
+          let [minPrice, maxPrice] = priceRange.split('-').map(Number);
+          if (cardPrice < minPrice || cardPrice > maxPrice) {
+            showCard = false;
+          }
+        }
+
+        // Display or hide the card
+        card.style.display = showCard ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

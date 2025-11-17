@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Tour Operator Info Portal</title>
+
+  <style>
+    /* -------------------- GLOBAL STYLING ------------------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e3c72, #2a5298, #00c6ff);
+      background-size: 300% 300%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* -------------------- LOGIN CONTAINER ------------------------ */
+    .login-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px 35px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+
+    .login-box h1 {
+      color: #00c6ff;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .login-box p {
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-group label {
+      font-size: 14px;
+      color: #cde8ff;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 0 8px rgba(0,198,255,0.6);
+    }
+
+    /* Password Eye Icon */
+    #toggleIcon {
+      position: absolute;
+      right: 15px;
+      top: 45%;
+      cursor: pointer;
+      font-size: 18px;
+      color: #cde8ff;
+      transition: 0.3s;
+    }
+
+    #toggleIcon:hover {
+      color: #00c6ff;
+    }
+
+    /* -------------------- BUTTON ------------------------ */
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------- FOOTER LINKS ------------------------ */
+    .links {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .links a {
+      font-size: 13px;
+      color: #cde8ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      color: #00c6ff;
+      text-decoration: underline;
+    }
+
+    /* -------------------- ALERT POPUP ------------------------ */
+    .alert {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #fff;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+
+    .alert.show {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    .alert.success {
+      background: linear-gradient(135deg, #00c851, #007e33);
+      box-shadow: 0 0 12px rgba(0,200,81,0.6);
+    }
+
+    .alert.error {
+      background: linear-gradient(135deg, #ff4444, #cc0000);
+      box-shadow: 0 0 12px rgba(255,68,68,0.6);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h1>Welcome Back!</h1>
+    <p>Login to access your travel dashboard</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+        <span id="toggleIcon" onclick="togglePassword()">👁️</span>
+      </div>
+
+      <a href="admin.html"><button type="submit">Login</button></a>
+
+      <div class="links">
+        <a href="#">Forgot Password?</a>
+        <a href="registration.html">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Toggle Password Visibility
+    function togglePassword() {
+      const pass = document.getElementById("password");
+      const icon = document.getElementById("toggleIcon");
+
+      if (pass.type === "password") {
+        pass.type = "text";
+        icon.textContent = "🙈";
+      } else {
+        pass.type = "password";
+        icon.textContent = "👁️";
+      }
+    }
+
+    // Login Validation
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "" || password === "") {
+        showAlert("Please fill all fields!", "error");
+        return;
+      }
+
+      // Static admin login (change later when backend added)
+      if (username === "admin" && password === "12345") {
+        showAlert("Login Successful! Redirecting...", "success");
+
+        setTimeout(() => {
+          window.location.href = "admin.html";
+        }, 1800);
+      } else {
+        showAlert("Invalid Username or Password!", "error");
+      }
+    });
+
+    // Custom Alert Popup
+    function showAlert(message, type) {
+      const div = document.createElement("div");
+      div.className = `alert ${type}`;
+      div.textContent = message;
+      document.body.appendChild(div);
+
+      setTimeout(() => div.classList.add("show"), 100);
+
+      setTimeout(() => {
+        div.classList.remove("show");
+        setTimeout(() => div.remove(), 500);
+      }, 2500);
+    }
+  </script>
+
+</body>
+</html>

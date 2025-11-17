@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan Tour Operator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      color: #333;
+    }
+
+    header {
+      background: url('download (1).jpg') no-repeat center/cover;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.4);
+      padding: 15px 25px;
+      border-radius: 10px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .details {
+      line-height: 1.7;
+    }
+
+    .details h2 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .details h3 {
+      margin-top: 20px;
+      color: #e67e22;
+    }
+
+    .details ul {
+      margin-left: 20px;
+      list-style: square;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 25px;
+      background: #e67e22;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .book-btn:hover {
+      background: #d35400;
+    }
+
+    /* Modal */
+    /* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  width: 90%;
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 35px 40px;
+  animation: fadeIn 0.5s ease;
+  position: relative;
+}
+
+/* Heading */
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.input-group input:focus {
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 0 8px rgba(0, 198, 255, 0.6);
+}
+
+/* Submit Button */
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.5);
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+}
+
+/* Close Button */
+.close {
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #00c6ff;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .modal-content {
+    padding: 25px 25px;
+  }
+
+  .modal-content h2 {
+    font-size: 22px;
+  }
+
+  .register-btn {
+    font-size: 15px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Japan Tour Operator</h1>
+  </header>
+
+  <div class="container">
+    <div class="gallery">
+      <img src="japan images\download.jpg" alt="Dotonbori – Osaka, Japan">
+      <img src="japan images\download (1).jpg" alt="Kinkakuji – Kyoto, Japan.">
+      <img src="japan images\download (2).jpg" alt="Nagoya Castle – Nagoya, Japan.">
+      <img src="japan images\download (3).jpg" alt="Sapporo Snow Festival – Hokkaido, Japan">
+      <img src="japan images\download (4).jpg" alt="Mt. Fuji – Yamanashi, Japan.">
+      <img src="japan images\download (5).jpg" alt="Hakuba Valley – Nagano, Japan">
+      <img src="japan images\download (6).jpg" alt="Ishigaki island – Okinawa, Japan.">
+      <img src="japan images\download (7).jpg" alt="spring blossom japan">
+    </div>
+
+    <section class="details">
+      <h2>Japan Tour Package – 7 Days / 6 Nights</h2>
+      <p>
+        Discover the beauty of Japan – Experience the culture, history, and beauty of Japan with this comprehensive 7-day tour package. Explore Tokyo’s modern skyline, the historic temples of Kyoto, and the stunning natural beauty of Mount Fuji. A once-in-a-lifetime adventure awaits!
+      </p>
+
+      <h3>🌆 Cities to Explore</h3>
+      <ul>
+        <li><b>Osaka:</b> Eiffel Tower, Louvre Museum, Seine River Cruise</li>
+        <li><b>Ishigaki Island:</b> Mediterranean beaches, Monaco nightlife</li>
+        <li><b>Sapporo Snow Festival:</b> Gastronomic capital with world-class cuisine</li>
+        <li><b>Nagoya Castle:</b> Charming old town and heritage</li>
+      </ul>
+
+      
+      <div class="card-content">
+      <div class="operator-info">
+        <img src="https://img.icons8.com/fluency/48/airplane-take-off.png" alt="Operator Logo">
+        <div>
+          <h3>GlobeTrotter Tours</h3>
+          <p>Contact: info@globetrotter.com | +81 1 234 5678</p>
+        </div>
+      </div>
+
+      <div class="details">
+        <p><strong>Price:</strong> $2,200 per person</p>
+        <p><strong>Best Time:</strong> March – May, September – November</p>
+      </div>
+
+      <div class="highlights">
+        <h3>Tour Highlights</h3>
+        <ul>
+          <li>Guided tour of Eiffel Tower & Seine River Cruise</li>
+          <li>Explore Louvre Museum and Champs-Élysées</li>
+          <li>Relax on the French Riviera beaches</li>
+          <li>Excursion to Mont Saint-Michel Abbey</li>
+        </ul>
+      </div>
+      <h4>Itinerary:</h4>
+    <p><strong>Day 1:</strong> Arrive in Tokyo, check-in, and explore the city.</p>
+    <p><strong>Day 2:</strong> Tokyo city tour - visit the Tokyo Skytree, Meiji Shrine, and Shibuya Crossing.</p>
+    <p><strong>Day 3:</strong> Kyoto - explore Kinkaku-ji Temple and Fushimi Inari-taisha Shrine.</p>
+    <p><strong>Day 4:</strong> Kyoto - experience the traditional tea ceremony and visit Arashiyama Bamboo Grove.</p>
+    <p><strong>Day 5:</strong> Travel to Mount Fuji - hike, visit Hakone, and view Mount Fuji from various angles.</p>
+    <p><strong>Day 6:</strong> Return to Tokyo for shopping at Ginza and explore the nightlife in Shinjuku.</p>
+    <p><strong>Day 7:</strong> Departure day - return flight back home.</p>
+
+
+      <div class="highlights">
+        <h3>Stay Options</h3>
+        <ul>
+          <li>4★ Hotels in Paris</li>
+          <li>Luxury Beach Resort in Nice</li>
+          <li>Cozy Countryside B&Bs</li>
+        </ul>
+      </div>
+ <h4>What's Included:</h4>
+    <ul>
+      <li>Round-trip flights from your home country</li>
+      <li>Accommodation at 4-star hotels</li>
+      <li>Daily breakfast and selected meals</li>
+      <li>Guided city tours of Tokyo, Kyoto, and Mount Fuji</li>
+      <li>Visit to the famous Shinto Shrine at Fushimi Inari-taisha</li>
+      <li>Bullet train ride between Tokyo, Kyoto, and Mount Fuji</li>
+      <li>Entrance fees to major attractions such as the Tokyo Skytree, Kinkaku-ji Temple, and Mount Fuji viewing points</li>
+      <li>Expert tour guide throughout the journey</li>
+    </ul>
+      <div class="highlights">
+        <h3>Package Includes</h3>
+        <ul>
+          <li>Airport transfers</li>
+          <li>Daily breakfast & dinner</li>
+          <li>Local English-speaking guide</li>
+          <li>All entry tickets & passes</li>
+        </ul>
+      </div>
+
+      <div class="highlights">
+        <h3>Exclusions</h3>
+        <ul>
+          <li>International airfare</li>
+          <li>Personal expenses (shopping, drinks, etc.)</li>
+          <li>Optional tours not mentioned in the itinerary</li>
+        </ul>
+      </div>
+
+      <div class="rating">
+        <strong>Rating:</strong> <span class="stars">★★★★★</span> (4.7/5 based on 320 reviews)
+      </div>
+
+     
+    </section>
+
+    <button class="book-btn" onclick="openForm()">Book Now</button>
+  </div>
+
+  <!-- Booking Modal -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+    <h2>Book Your Dream Trip</h2>
+    <form id="bookingForm">
+      <div class="input-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="input-group">
+        <label for="date">Preferred Travel Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <button type="submit" class="register-btn">Confirm Booking</button>
+    </form>
+  </div>
+</div>
+
+
+  <script>
+    // Open modal
+    function openForm() {
+      document.getElementById("bookingModal").style.display = "flex";
+    }
+
+    // Close modal
+    function closeForm() {
+      document.getElementById("bookingModal").style.display = "none";
+    }
+
+    // Close modal on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById("bookingModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Form validation
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const people = document.getElementById("people").value;
+
+      if (!name || !email || !phone || !people) {
+        alert("⚠️ Please fill out all fields!");
+        return;
+      }
+
+      alert("✅ Booking confirmed! We will contact you shortly.");
+      closeForm();
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

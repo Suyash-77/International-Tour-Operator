@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Tour Operator Info Portal</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <style>
+    /* General Reset */
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      padding: 15px 30px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    header nav ul li a:hover,
+    header nav ul li a.active {
+      color: #ffd60a;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('index image.avif') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1.5s;
+    }
+    .hero p {
+      margin: 15px 0;
+      font-size: 18px;
+    }
+    .btn {
+      padding: 12px 20px;
+      background: #ffd60a;
+      color: #000;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #ffc300;
+      transform: scale(1.05);
+    }
+
+    /* Search Section */
+    .search-section {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f1f1f1;
+    }
+    .search-section input {
+      width: 50%;
+      padding: 12px;
+      border-radius: 25px;
+      border: 2px solid #0077b6;
+      outline: none;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    /* Operators Section */
+    .operators {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card h3 {
+      margin: 10px 0;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .card .price {
+      font-weight: bold;
+      color: #0077b6;
+      margin-top: 5px;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      background: #0077b6;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card button:hover {
+      background: #023e8a;
+    }
+
+    /* About & Contact */
+    .about, .contact {
+      padding: 50px 20px;
+      text-align: center;
+      background: #e9ecef;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #023e8a;
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-plane-departure"></i> Tour Portal
+    </div>
+    <nav>
+      <ul><li><a href="registration.html" class="nav-link">Register/Login</a></li>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="operator.html" class="nav-link">Operators</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Explore The World With Us ✈️</h1>
+      <p>Find trusted international tour operators, curated packages, and unforgettable experiences.</p>
+      <a href="operator.html" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  
+    </div>
+
+  </div>
+</section>
+
+    
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      The International Tour Operator Info Portal is your one-stop directory for global travel experiences. 
+      We connect travelers with reliable operators across continents, offering detailed packages, guides, and booking options.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@tourportal.com | Phone: +91-9876543210</p>
+  </section>
+
+  <footer>
+    <p>© 2025 International Tour Operator Info Portal | Designed with ✈️</p>
+  </footer>
+
+  <script>
+    // Highlight active navbar link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(sec => {
+        const sectionTop = sec.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = sec.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Search filter for operators
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+      const query = this.value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? "block" : "none";
+      });
+    });
+
+    // Button click animation
+    const buttons = document.querySelectorAll(".btn, .card button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.style.transform = "scale(0.9)";
+        setTimeout(() => {
+          btn.style.transform = "scale(1)";
+        }, 200);
+      });
+    });
+
+    // Dummy booking function
+    function bookNow(packageName) {
+      alert("Booking started for: " + packageName);
+    }
+  </script>
+</body>
+</html>

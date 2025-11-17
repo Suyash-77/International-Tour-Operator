@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - International Tour Operator Info Portal</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+ header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      padding: 15px 30px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    header nav ul li a:hover,
+    header nav ul li a.active {
+      color: #ffd60a;
+    }
+
+
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #00c6ff);
+  color: #fff;
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  color: #00c6ff;
+  margin-bottom: 10px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 60px;
+  gap: 40px;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 350px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.about-content h2 {
+  color: #00c6ff;
+  margin-bottom: 10px;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about-content ul {
+  list-style: none;
+}
+
+.about-content ul li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+    <header>
+    <div class="logo">
+      <i class="fas fa-plane-departure"></i> Tour Portal
+    </div>
+    <nav>
+      <ul><li><a href="registration.html" class="nav-link">Register/Login</a></li>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="operator.html" class="nav-link">Operators</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <header>
+    <h1>About Us</h1>
+    <p>Connecting travelers with trusted global tour operators.</p>
+  </header>
+
+  <!-- Main Section -->
+  <section class="about-container">
+    <div class="about-content">
+      <h2>Who We Are</h2>
+      <p>
+        The <strong>International Tour Operator Info Portal</strong> is a comprehensive online directory
+        designed to connect travelers with the best tour operators across the world.
+        Our mission is to make travel planning simpler, transparent, and more enjoyable by offering
+        verified operator profiles, travel packages, and destination details all in one place.
+      </p>
+
+      <h2>Our Mission</h2>
+      <p>
+        We aim to bridge the gap between travel enthusiasts and service providers. By offering a
+        centralized platform with trusted information, we empower tourists to make informed decisions
+        and help operators grow their visibility in the global tourism market.
+      </p>
+
+      <h2>What We Offer</h2>
+      <ul>
+        <li>🌐 Directory of verified international tour operators</li>
+        <li>📸 Profiles with images, contact details, and services</li>
+        <li>🧭 Package details including destinations and accommodations</li>
+        <li>👨‍💻 Admin dashboard to manage and update data easily</li>
+        <li>🔍 Filter and search features for user convenience</li>
+      </ul>
+    </div>
+
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1" alt="Travel Around the World">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 International Tour Operator Info Portal | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
